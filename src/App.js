@@ -44,11 +44,17 @@ export default function App() {
               <Text style={styles.repository}>{repository.title}</Text>
 
               <View style={styles.techsContainer}>
-                {repository.techs.map((tech) => (
-                  <Text style={styles.tech} key={Math.random()}>
-                    {tech}
+                {repository.techs != undefined ? (
+                  repository.techs.map((tech) => (
+                    <Text style={styles.tech} key={Math.random()}>
+                      {tech}
+                    </Text>
+                  ))
+                ) : (
+                  <Text style={styles.tech_no} key={Math.random()}>
+                    NO TECH
                   </Text>
-                ))}
+                )}
               </View>
 
               <View style={styles.likesContainer}>
@@ -100,6 +106,15 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginRight: 10,
     backgroundColor: "#04d361",
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    color: "#fff",
+  },
+  tech_no: {
+    fontSize: 12,
+    fontWeight: "bold",
+    marginRight: 10,
+    backgroundColor: "#ff0f0f",
     paddingHorizontal: 10,
     paddingVertical: 5,
     color: "#fff",
